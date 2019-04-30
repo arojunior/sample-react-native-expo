@@ -1,9 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { FlatList } from 'react-native';
+import { Title, SubTitle } from './ui/Text';
+import {
+  Container,
+  Item,
+  ItemSeparator,
+  Category,
+  Description,
+  Value
+} from './ui/Transaction';
 
 const TransactionsComponent = ({ transactions }) => (
-  <View>{console.log(`transactions`, transactions)}</View>
+  <Container>
+    <FlatList
+      data={transactions}
+      keyExtractor={({ id }) => id}
+      ItemSeparatorComponent={() => <ItemSeparator />}
+      renderItem={({ item: { merchant, amount } }) => (
+        <Item>
+          <Description>
+            <Title>{merchant.name}</Title>
+            <Category>
+              <SubTitle>{merchant.merchantCategory.name}</SubTitle>
+            </Category>
+          </Description>
+          <Value>
+            <Title>${amount}</Title>
+          </Value>
+        </Item>
+      )}
+    />
+    {console.log(transactions)}
+  </Container>
 );
 
 TransactionsComponent.propTypes = {
