@@ -2,14 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FlatList } from 'react-native';
 import { Title, SubTitle } from './ui/Text';
-import {
-  Container,
-  Item,
-  ItemSeparator,
-  Category,
-  Description,
-  Value
-} from './ui/Transaction';
+import { Category, Description, Value } from './ui/Transaction';
+import { Container, Item, ItemSeparator } from './ui/List';
+import { toMoney } from '../services/common/utils';
 
 const TransactionsComponent = ({ transactions }) => (
   <Container>
@@ -26,12 +21,11 @@ const TransactionsComponent = ({ transactions }) => (
             </Category>
           </Description>
           <Value>
-            <Title>${amount}</Title>
+            <Title>{toMoney(amount)}</Title>
           </Value>
         </Item>
       )}
     />
-    {console.log(transactions)}
   </Container>
 );
 
