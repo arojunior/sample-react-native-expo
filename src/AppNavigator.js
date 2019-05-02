@@ -1,6 +1,7 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import TransationsContainer from './components/TransactionsContainer';
 import TransationDetailsContainer from './components/TransactionDetailContainer';
+import CategorySelectionContainer from './components/CategorySelectionContainer';
 
 const AppNavigator = createStackNavigator(
   {
@@ -14,6 +15,12 @@ const AppNavigator = createStackNavigator(
       screen: TransationDetailsContainer,
       navigationOptions: {
         headerTitle: 'Details'
+      }
+    },
+    CategorySelection: {
+      screen: CategorySelectionContainer,
+      navigationOptions: {
+        headerTitle: 'Change Category'
       }
     }
   },
