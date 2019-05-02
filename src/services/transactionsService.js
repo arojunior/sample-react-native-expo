@@ -12,3 +12,15 @@ export const getTransactions = setTransactions => {
       logger.error(err);
     });
 };
+
+export const getTransactionById = ({ setTransaction, id }) => {
+  const mock = new Client();
+  mock
+    .fetchTransaction(id)
+    .then(data => {
+      setTransaction(data);
+    })
+    .catch(err => {
+      logger.error(err);
+    });
+};

@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import SafeAreaView from './src/components/ui/SafeArea';
-import TransactionsContainer from './src/components/TransactionsContainer';
+import TransactionDetailContainer from './src/components/TransactionDetailContainer';
+
+const MainView = styled.View`
+  flex: 1;
+  background-color: #fafafa;
+`;
+
 export default class App extends Component {
   render() {
     return (
       <SafeAreaView>
-        <TransactionsContainer />
+        <MainView>
+          <TransactionDetailContainer />
+        </MainView>
       </SafeAreaView>
     );
   }
