@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import SafeAreaView from './src/components/ui/SafeArea';
-import TransactionDetailContainer from './src/components/TransactionDetailContainer';
+import CategorySelectionContainer from './src/components/CategorySelectionContainer';
 
 const MainView = styled.View`
   flex: 1;
@@ -13,7 +13,7 @@ export default class App extends Component {
     return (
       <SafeAreaView>
         <MainView>
-          <TransactionDetailContainer />
+          <CategorySelectionContainer />
         </MainView>
       </SafeAreaView>
     );
