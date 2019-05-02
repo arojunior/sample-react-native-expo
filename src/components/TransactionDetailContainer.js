@@ -1,6 +1,7 @@
 import {
   compose,
   withState,
+  withHandlers,
   lifecycle,
   branch,
   renderComponent
@@ -10,9 +11,16 @@ import { withNavigation } from 'react-navigation';
 import TransactionDetailComponent from './TransactionDetailComponent';
 import { getTransactionById } from '../services/transactionsService';
 
+const onPressCategorySelection = ({ navigation }) => () => {
+  navigation.navigate(`CategorySelection`);
+};
+
 export default compose(
   withNavigation,
   withState(`transaction`, `setTransaction`, {}),
+  withHandlers({
+    onPressCategorySelection
+  }),
   lifecycle({
     componentDidMount() {
       const { setTransaction, navigation } = this.props;

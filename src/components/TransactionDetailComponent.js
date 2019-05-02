@@ -1,4 +1,5 @@
 import React from 'react';
+import { TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Title, SubTitle } from './ui/Text';
@@ -50,7 +51,10 @@ const ColumnRight = styled.View`
   align-items: flex-end;
 `;
 
-const TransactionDetailComponent = ({ transaction }) => {
+const TransactionDetailComponent = ({
+  transaction,
+  onPressCategorySelection
+}) => {
   const { merchant, amount, purchaseTime } = transaction;
   const { merchantCategory } = merchant;
 
@@ -107,7 +111,9 @@ const TransactionDetailComponent = ({ transaction }) => {
             <SubTitle>QuickBooks Category</SubTitle>
           </ColumnLeft>
           <ColumnRight>
-            <HighlightText>Select a category ></HighlightText>
+            <TouchableOpacity onPress={onPressCategorySelection}>
+              <HighlightText>Select a category ></HighlightText>
+            </TouchableOpacity>
           </ColumnRight>
         </Row>
       </SectionContainer>
@@ -116,7 +122,8 @@ const TransactionDetailComponent = ({ transaction }) => {
 };
 
 TransactionDetailComponent.propTypes = {
-  transaction: PropTypes.shape({}).isRequired
+  transaction: PropTypes.shape({}).isRequired,
+  onPressCategorySelection: PropTypes.func.isRequired
 };
 
 export default TransactionDetailComponent;
