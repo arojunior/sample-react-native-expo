@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FlatList } from 'react-native';
 import { Title, SubTitle } from './ui/Text';
-import { Category, Description, Value } from './ui/Transaction';
-import { Container, Item, ItemSeparator } from './ui/List';
+import { Description, Value } from './ui/Transaction';
+import { Container, Item, SubItem, ItemSeparator } from './ui/List';
 import { toMoney } from '../services/common/utils';
 
 const TransactionsComponent = ({ transactions }) => (
@@ -16,9 +16,9 @@ const TransactionsComponent = ({ transactions }) => (
         <Item>
           <Description>
             <Title>{merchant.name}</Title>
-            <Category>
+            <SubItem>
               <SubTitle>{merchant.merchantCategory.name}</SubTitle>
-            </Category>
+            </SubItem>
           </Description>
           <Value>
             <Title>{toMoney(amount)}</Title>
