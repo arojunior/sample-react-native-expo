@@ -6,17 +6,19 @@ import {
   renderComponent
 } from 'recompose';
 import { ActivityIndicator } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import TransactionDetailComponent from './TransactionDetailComponent';
 import { getTransactionById } from '../services/transactionsService';
 
 export default compose(
+  withNavigation,
   withState(`transaction`, `setTransaction`, {}),
   lifecycle({
     componentDidMount() {
-      const { setTransaction } = this.props;
+      const { setTransaction, navigation } = this.props;
       getTransactionById({
         setTransaction,
-        id: 'ffb73532-f245-4ac7-8f5b-7726ace56c4a'
+        id: navigation.state.params.id
       });
     }
   }),
