@@ -26,9 +26,8 @@ export default compose(
   lifecycle({
     componentDidMount() {
       const { setTransaction, navigation } = this.props;
-      getTransactionById({
-        setTransaction,
-        id: navigation.state.params.id
+      getTransactionById(navigation.state.params.id).then(data => {
+        setTransaction(data);
       });
     }
   }),

@@ -31,7 +31,9 @@ export default compose(
   lifecycle({
     componentDidMount() {
       const { setCategories } = this.props;
-      getCategories(setCategories);
+      getCategories().then(data => {
+        setCategories(data);
+      });
     }
   })
 )(CategorySelectionComponent);
