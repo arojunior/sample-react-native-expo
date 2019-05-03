@@ -1,16 +1,11 @@
 import Client from '../lib/index';
 import logger from './common/logger';
 
-export const getCategories = setCategories => {
+export const getCategories = () => {
   const mock = new Client();
-  mock
-    .fetchUserCategories()
-    .then(data => {
-      setCategories(data);
-    })
-    .catch(err => {
-      logger.error(err);
-    });
+  return mock.fetchUserCategories().catch(err => {
+    logger.error(err);
+  });
 };
 
 export const changeCategory = ({ transactionId, categoryId }) => {

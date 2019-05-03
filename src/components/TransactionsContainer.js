@@ -18,7 +18,9 @@ export default compose(
   lifecycle({
     componentDidMount() {
       const { setTransactions } = this.props;
-      getTransactions(setTransactions);
+      getTransactions().then(data => {
+        setTransactions(data);
+      });
     }
   })
 )(TransactionsComponent);
