@@ -15,7 +15,7 @@ export const getCategories = setCategories => {
 
 export const changeCategory = ({ transactionId, categoryId }) => {
   const mock = new Client();
-  mock
+  return mock
     .updateTransactionUserCategory(transactionId, categoryId)
     .then(() => {
       logger.info(

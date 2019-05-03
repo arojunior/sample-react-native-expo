@@ -1,18 +1,30 @@
-import { compose, withState, withHandlers, lifecycle } from 'recompose';
+import {
+  compose,
+  withState,
+  withHandlers,
+  withProps,
+  lifecycle
+} from 'recompose';
 import { withNavigation } from 'react-navigation';
 import CategorySelectionComponent from './CategorySelectionComponent';
 import { getCategories, changeCategory } from '../services/categoriesService';
 
-const onPress = ({ navigation }) => categoryId => {
+const onPress = ({ transactionId, setSelectedCategory }) => categoryId => {
   changeCategory({
-    transactionId: navigation.state.params.transactionId,
+    transactionId,
     categoryId
+  }).then(() => {
+    setSelectedCategory(categoryId);
   });
 };
 
 export default compose(
   withNavigation,
   withState(`categories`, `setCategories`, []),
+  withState(`selectedCategory`, `setSelectedCategory`, ``),
+  withProps(({ navigation: { state: { params } } }) => ({
+    transactionId: params.transactionId
+  })),
   withHandlers({
     onPress
   }),
