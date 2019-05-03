@@ -11,8 +11,10 @@ import { withNavigation } from 'react-navigation';
 import TransactionDetailComponent from './TransactionDetailComponent';
 import { getTransactionById } from '../services/transactionsService';
 
-const onPressCategorySelection = ({ navigation }) => () => {
-  navigation.navigate(`CategorySelection`);
+const onPressCategorySelection = ({ navigation }) => transactionId => {
+  navigation.navigate(`CategorySelection`, {
+    transactionId
+  });
 };
 
 export default compose(
