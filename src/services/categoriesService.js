@@ -12,3 +12,17 @@ export const getCategories = setCategories => {
       logger.error(err);
     });
 };
+
+export const changeCategory = ({ transactionId, categoryId }) => {
+  const mock = new Client();
+  mock
+    .updateTransactionUserCategory(transactionId, categoryId)
+    .then(() => {
+      logger.info(
+        `Updated transaction id ${transactionId} with category ${categoryId}`
+      );
+    })
+    .catch(err => {
+      logger.error(err);
+    });
+};

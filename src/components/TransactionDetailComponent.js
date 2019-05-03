@@ -55,7 +55,7 @@ const TransactionDetailComponent = ({
   transaction,
   onPressCategorySelection
 }) => {
-  const { merchant, amount, purchaseTime } = transaction;
+  const { id, merchant, amount, purchaseTime } = transaction;
   const { merchantCategory } = merchant;
 
   return (
@@ -111,7 +111,7 @@ const TransactionDetailComponent = ({
             <SubTitle>QuickBooks Category</SubTitle>
           </ColumnLeft>
           <ColumnRight>
-            <TouchableOpacity onPress={onPressCategorySelection}>
+            <TouchableOpacity onPress={() => onPressCategorySelection(id)}>
               <HighlightText>Select a category ></HighlightText>
             </TouchableOpacity>
           </ColumnRight>
