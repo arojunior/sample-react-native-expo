@@ -1,7 +1,8 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
+import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
+import Arrow from '../icons/arrow-up.svg';
 import { Title, SubTitle } from './ui/Text';
 import { Description, Value } from './ui/Transaction';
 import { Item, SubItem, ItemSeparator } from './ui/List';
@@ -49,6 +50,11 @@ const ColumnLeft = styled.View`
 const ColumnRight = styled.View`
   flex: 1;
   align-items: flex-end;
+`;
+
+const CategorySelection = styled.View`
+  justify-content: center;
+  flex-direction: row;
 `;
 
 const TransactionDetailComponent = ({
@@ -112,7 +118,12 @@ const TransactionDetailComponent = ({
           </ColumnLeft>
           <ColumnRight>
             <TouchableOpacity onPress={() => onPressCategorySelection(id)}>
-              <HighlightText>Select a category ></HighlightText>
+              <CategorySelection>
+                <HighlightText style={{ marginRight: 5 }}>
+                  Select a category
+                </HighlightText>
+                <Arrow fill="#e9794b" />
+              </CategorySelection>
             </TouchableOpacity>
           </ColumnRight>
         </Row>

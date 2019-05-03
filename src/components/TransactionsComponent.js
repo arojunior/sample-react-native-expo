@@ -32,7 +32,8 @@ const TransactionsComponent = ({ transactions, onPress }) => (
 );
 
 TransactionsComponent.propTypes = {
-  transactions: PropTypes.arrayOf(PropTypes.shape({})).isRequired
+  transactions: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  onPress: PropTypes.func.isRequired
 };
 
 export default TransactionsComponent;
