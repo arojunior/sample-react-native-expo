@@ -1,25 +1,13 @@
-# Brex Mobile Coding Challenge
-
-This repository includes the description of Brex's Mobile Code Challenge, the
-code for the mock data client that you will need to use, and all the assets
-exported from Figma.
-
-It also has a React Native with Expo and TypeScript project bootstraped. If you
-are comfortable with such setup feel free to use it. You can also go with your
-own setup if you want.
+# Sample React Native expo application
 
 ## Goals
 
-You are working on the Brex mobile app, and you were assigned to implement
+You were assigned to implement
 the following flows:
 
 1. Display the list of transactions
 1. Display details of a specific transaction
 1. Change the category of a transaction
-
-The design team handed to the mobile team the following screens on Figma:
-
-https://www.figma.com/file/D4DraKVh3JC8fyhormh4gNRm/Mobile-Coding-Challenge
 
 The application should use the operating system default font. The icon assets
 are on `src/icons` directory. If you're using this repo, you can directly
@@ -89,8 +77,6 @@ export interface UserCategory {
   __typename: "UserCategory";
 }
 ```
-
-## Challenge milestones
 
 ### Milestone One
 
